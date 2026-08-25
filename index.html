@@ -5,7 +5,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DevJobs - Mural de Vagas de TI</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
+
   <body>
     <header class="header">
       <div class="container">
@@ -15,8 +22,17 @@
     </header>
 
     <main class="main">
-      <section class="search-section-container">
-        <h2 class="sr-only">Lista de vagas</h2>
+      <section class="search-section container">
+        <label for="busca">Buscar vagas</label>
+        <input
+          type="search"
+          id="busca"
+          placeholder="Ex: React, Node, Remoto..."
+        />
+      </section>
+
+      <section class="jobs-section container">
+        <h2 class="sr-only">Lista de Vagas</h2>
         <div class="jobs-grid" id="jobs-grid">
           <!--vamos colocar os cards de vagas aqui-->
           <!--PRIMEIRO CARD-->
@@ -28,17 +44,20 @@
               <h3 class="job-card__title">Desenvolvedor(a) Frontend React</h3>
               <p class="job-card__company">TechCompany Simulada</p>
             </div>
+
             <div class="job-card__body">
               <p class="job-card__tech">React - TypeScript - CSS</p>
-              <p class="job-card__salary">R$ 6.000 - R$9.000</p>
-              <p class="job-card__location">Remoto</p>
+              <p class="job-card__salary">R$ 6.000 - R$ 9.000</p>
+              <p class="job-card__location">📍 Remoto</p>
             </div>
+
             <div class="job-card__footer">
               <button type="button" class="btn btn--primary">
                 Ver detalhes
               </button>
             </div>
           </article>
+
           <article class="job-card">
             <div class="job-card__header">
               <span class="job-card__badge job-card__badge--remote"
@@ -49,13 +68,38 @@
               </h3>
               <p class="job-card__company">Hakai Security</p>
             </div>
+
             <div class="job-card__body">
               <p class="job-card__tech">
                 Redes - Linux - Python - Cybersecurity
               </p>
-              <p class="job-card__salary">R$ 1.500 - R$2.200</p>
-              <p class="job-card__location">Remoto</p>
+              <p class="job-card__salary">R$ 1.500 - R$ 2.200</p>
+              <p class="job-card__location">📍 Remoto</p>
             </div>
+
+            <div class="job-card__footer">
+              <button type="button" class="btn btn--primary">
+                Ver detalhes
+              </button>
+            </div>
+          </article>
+          <article class="job-card">
+            <div class="job-card__header">
+              <span class="job-card__badge job-card__badge--onsite"
+                >Remoto</span
+              >
+              <h3 class="job-card__title">Cientista de dados</h3>
+              <p class="job-card__company">TechNova Ltda</p>
+            </div>
+
+            <div class="job-card__body">
+              <p class="job-card__tech">
+                ML - Análise de dados - Deep Learning
+              </p>
+              <p class="job-card__salary">R$ 6.000 - R$ 9.000</p>
+              <p class="job-card__location">📍 Presencial</p>
+            </div>
+
             <div class="job-card__footer">
               <button type="button" class="btn btn--primary">
                 Ver detalhes
@@ -71,5 +115,7 @@
         <p>&copy; 2026 DevJobs - Projeto Disciplina Programação Web Uniube</p>
       </div>
     </footer>
+
+    <script src="js/script.js"></script>
   </body>
 </html>
