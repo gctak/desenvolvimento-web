@@ -1,12 +1,13 @@
 const express = require("express");
 const { timeStamp } = require("node:console");
 const cors = require("cors");
-
+const vagasRoutes = require("./routes/vagas.routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 app.use(cors());
 app.use(express.json());
+app.use("/api/vagas", vagasRoutes);
 
 app.get("/api/health", (req, res) => {
   res.json({
