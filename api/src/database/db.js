@@ -8,7 +8,7 @@ db.exec(`
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         nome TEXT NOT NULL,
         email TEXT UNIQUE NOT NULL,
-        senha_hash TEXT NOT NULL,
+        senha_hash TEXT NOT NULL
     );
     CREATE TABLE IF NOT EXISTS vagas(
         id INTEGER PRIMARY KEY AUTOINCREMENT,
