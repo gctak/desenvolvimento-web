@@ -22,7 +22,7 @@ db.exec(`
         estado TEXT,
         descricao TEXT,
         created_at TEXT DEFAULT (datetime('now')),
-        FOREIGN KEY (empresa_id) REFERENCES empresas(ida)
+        FOREIGN KEY (empresa_id) REFERENCES empresas(id)
     );
 `);
 
