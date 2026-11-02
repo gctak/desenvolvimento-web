@@ -1,9 +1,11 @@
+require("dotenv").config();
+
 const express = require("express");
 const cors = require("cors");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
-require(".database/db");
+require("./database/db");
 
 app.use(cors());
 app.use(express.json());
@@ -27,3 +29,9 @@ app.use((err, req, res, next) => {
 app.listen(PORT, () => {
   console.log(`DevJobs API rodando em http://localhost:${PORT}`);
 });
+
+const authRoutes = require("./routes/auth.routes");
+app.use("/api/auth", authRoutes);
+
+const cepRoutes = require("./routes/cep.routes");
+app.use("/api/cep", cepRoutes);
