@@ -1,5 +1,4 @@
 const db = require("./db");
-
 const bcrypt = require("bcryptjs");
 
 const senha = bcrypt.hashSync("123456", 10);

@@ -1,16 +1,12 @@
 const express = require("express");
-const { timeStamp } = require("node:console");
 const cors = require("cors");
-require("./database/db");
-
-const vagasRoutes = require("./routes/vagas.routes");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+require(".database/db");
 
 app.use(cors());
 app.use(express.json());
-app.use("/api/vagas", vagasRoutes);
 
 app.get("/api/health", (req, res) => {
   res.json({
@@ -20,7 +16,14 @@ app.get("/api/health", (req, res) => {
   });
 });
 
+const vagasRoutes = require("./routes/vagas.routes");
 app.use("/api/vagas", vagasRoutes);
+
+app.use((err, req, res, next) => {
+  console.error(err);
+  res.status(500).json({ erro: "Erro interno do servidor" });
+});
+
 app.listen(PORT, () => {
   console.log(`DevJobs API rodando em http://localhost:${PORT}`);
 });
