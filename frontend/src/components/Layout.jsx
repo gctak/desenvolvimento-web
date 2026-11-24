@@ -1,8 +1,17 @@
-import { NavLink, Outlet } from "react-router-dom";
-import Header from "./Header";
-import Footer from "./Footer";
+import { Outlet, NavLink, useNavigate } from 'react-router-dom';
+import Header from './Header';
+import Footer from './Footer';
+import { useAuth } from '../context/AuthContext';
 
 export default function Layout() {
+  const { isLoggedIn, logout } = useAuth();
+  const navigate = useNavigate();
+
+  function handleLogout() {
+    logout();
+    navigate('/login');
+  }
+
   return (
     <>
       <Header />
@@ -11,8 +20,16 @@ export default function Layout() {
           <NavLink to="/" end>
             Vagas
           </NavLink>
-          <NavLink to="/login">Login</NavLink>
-          <NavLink to="/dashboard">Dashboard</NavLink>
+          {isLoggedIn ? (
+            <>
+              <NavLink to="/dashboard">Dashboard</NavLink>
+              <button type="button" className="nav__logout" onClick={handleLogout}>
+                Sair
+              </button>
+            </>
+          ) : (
+            <NavLink to="/login">Login</NavLink>
+          )}
         </div>
       </nav>
       <main className="main container">
